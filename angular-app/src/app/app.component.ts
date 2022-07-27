@@ -9,12 +9,7 @@ import { IMemberApiService } from './services/api/member/member-api.service';
 
 export class AppComponent {
   title = 'fe-tech-challenge';
-
-  constructor(
-    @Inject(IMemberApiServiceProvider)
-    private memberApiService: IMemberApiService
-  ) {
-    // This is here to show you the member api service can be consumed in a component.
-    this.memberApiService.getCollection().subscribe(x => console.log(x));
-  }
+  constructor() { }
 }
+
+export const validationMessage = 'Please fill out all fields';
