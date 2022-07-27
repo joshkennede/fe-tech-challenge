@@ -39,8 +39,9 @@ export class StubMemberApiService implements IMemberApiService {
      * @returns The newly created member
      */
     create(member: IMemberDto): Observable<IMemberDto> { 
+				var newMemberId = repository.length + 1;
         repository.push({
-            member,
+            member: { ...member, id: newMemberId },
             preapprovals: []
         })
         
