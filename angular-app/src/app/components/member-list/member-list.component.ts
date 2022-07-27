@@ -33,3 +33,6 @@ export class MemberListComponent implements OnInit {
 		this.getMembers();
 	}
 }
+
+// I had pagination working but ran into an issue with keeping the member list current
+// so I removed it (see commits)
