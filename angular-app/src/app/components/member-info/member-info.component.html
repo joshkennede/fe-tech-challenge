@@ -1,1 +1,30 @@
-<p>member-info works!</p>
+<h1>Member Information</h1>
+<section>
+	<div *ngIf="canUpdate">
+		<label>First Name:</label>
+		<input type="text" [(ngModel)]="newFirstName" />
+		<label>Last Name:</label>
+		<input type="text" [(ngModel)]="newLastName" />
+		<label>SSN:</label>
+		<input type="text" [(ngModel)]="newSsn" />
+		<label>Date of Birth:</label>
+		<input type="text" [(ngModel)]="newDateOfBirth" />
+	</div>
+	<div *ngIf="!canUpdate">
+		<label>First Name:</label>
+		<span>{{ member.value?.firstName }}</span>
+		<label>LastName:</label>
+		<span>{{ member.value?.lastName }}</span>
+		<label>SSN:</label>
+		<span>{{ member.value?.ssn }}</span>
+		<label>Date of Birth:</label>
+		<span>{{ member.value?.dateOfBirth | date: 'shortDate' }}</span>
+	</div>
+	<br />
+	<br />
+	<button (click)="goBack()">Go Back</button>
+	<button *ngIf="!canUpdate" (click)="editMember()">Edit Member</button>
+	<button *ngIf="canUpdate" (click)="updateMember()">Update Member</button>
+	<br />
+	<p *ngIf="validationMessage" class="validationMessage">{{ validationMessage }}</p>
+</section>
