@@ -8,7 +8,7 @@
 		<label>SSN:</label>
 		<input type="text" [(ngModel)]="newSsn" />
 		<label>Date of Birth:</label>
-		<input type="text" [(ngModel)]="newDateOfBirth" />
+		<input type="date" [ngModel]="newDateOfBirth | date: 'yyyy-MM-dd'" (ngModelChange)="newDateOfBirth = $event" />
 	</div>
 	<div *ngIf="!canUpdate">
 		<label>First Name:</label>
