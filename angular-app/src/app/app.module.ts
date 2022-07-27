@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -20,7 +21,8 @@ import { MemberInfoComponent } from './components/member-info/member-info.compon
   imports: [
     BrowserModule,
     AppRoutingModule,
-		FormsModule
+		FormsModule,
+		NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

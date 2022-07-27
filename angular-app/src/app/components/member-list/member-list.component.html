@@ -8,7 +8,7 @@
 			<th>Name</th>
 			<th>Actions</th>
 		</tr>
-		<tr *ngFor="let member of getMembers() | async">
+		<tr *ngFor="let member of members | paginate: config">
 			<td>
 				<h4>{{ member.firstName }} {{ member.lastName }}</h4>
 			</td>
@@ -18,4 +18,5 @@
 			</td>
 		</tr>
 	</table>
+	<pagination-controls class="wsecu-pagination" (pageChange)="onPageChange($event)"></pagination-controls>
 </section>
