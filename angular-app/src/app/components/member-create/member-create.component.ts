@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { IMemberApiServiceProvider } from 'src/app/services/api/member/member-api.config';
+import { IMemberApiService } from 'src/app/services/api/member/member-api.service';
+import { IMemberDto } from 'src/app/models/dto/member-dto.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-member-create',
@@ -7,9 +11,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MemberCreateComponent implements OnInit {
 
-  constructor() { }
+	public validationMessage: string = '';
+	public firstName: string = '';
+	public lastName: string = '';
+	public ssn: string = '';
+	public dateOfBirth: Date | undefined;
+
+  constructor(
+		@Inject(IMemberApiServiceProvider)
+		private memberService: IMemberApiService,
+		private router: Router
+	) { }
 
   ngOnInit(): void {
   }
+
+	createMember(): void {
+		const member: IMemberDto = {
+			firstName: this.firstName,
+			lastName: this.lastName,
+			ssn: this.ssn,
+			dateOfBirth: this.dateOfBirth!
+		};
+
+		if (this.isFormComplete(member)) {
+			this.memberService.create(member).subscribe(() => this.router.navigate(['/']));
+		} else {
+			this.validationMessage = 'Please fill out all fields';
+		}
+	}
+
+	isFormComplete(member: IMemberDto): boolean {
+		if (!member.firstName || 
+				!member.lastName || 
+				!member.ssn || 
+				!member.dateOfBirth
+				) {
+			return false;
+		}
+		return true;
+	}
 
 }
