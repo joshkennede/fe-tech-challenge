@@ -1,1 +1,21 @@
-<p>member-list works!</p>
+<h1>Members</h1>
+<section>
+	<button [routerLink]="['/member/create']">Create Member</button>
+	<br />
+	<br />
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Actions</th>
+		</tr>
+		<tr *ngFor="let member of getMembers() | async">
+			<td>
+				<h4>{{ member.firstName }} {{ member.lastName }}</h4>
+			</td>
+			<td>
+				<button [routerLink]="['/member/', member.id]">View</button>
+				<button (click)="deleteMember(member.id!)">Delete</button>
+			</td>
+		</tr>
+	</table>
+</section>
