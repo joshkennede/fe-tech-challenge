@@ -1,7 +1,0 @@
-.wsecu-pagination ::ng-deep .ngx-pagination .current {
-	background: var(--secondary-color);
-}
-
-.ngx-pagination .current {
-  color: var(--primary-color);
-}

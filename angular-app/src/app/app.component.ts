@@ -1,6 +1,4 @@
-import { Component, Inject } from '@angular/core';
-import { IMemberApiServiceProvider } from './services/api/member/member-api.config';
-import { IMemberApiService } from './services/api/member/member-api.service';
+import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

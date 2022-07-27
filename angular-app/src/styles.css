@@ -219,11 +219,11 @@ input:checked + .slider:before {
   text-transform: uppercase;
   font-family: 'Jost';
   color: var(--secondary-color);
-  }
+}
 
-  .validationMessage {
-  transition-delay: 3s;
-  }
+.validationMessage {
+transition-delay: 3s;
+}
 
 @media only screen and (max-width: 950px) {
 		.left-col {
