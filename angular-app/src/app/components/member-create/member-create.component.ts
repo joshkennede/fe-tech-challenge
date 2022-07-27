@@ -42,6 +42,10 @@ export class MemberCreateComponent implements OnInit {
 		}
 	}
 
+	goBack() {
+		this.router.navigate(['/']);
+	}
+
 	isFormComplete(member: IMemberDto): boolean {
 		if (!member.firstName || 
 				!member.lastName || 

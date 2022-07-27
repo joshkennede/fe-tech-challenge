@@ -1,13 +1,14 @@
 <h1>New Member</h1>
 <section>
-		<label>First Name:</label>
-		<input type="text" [(ngModel)]="firstName" />
-		<label>Last Name:</label>
-		<input type="text" [(ngModel)]="lastName" />
-		<label>SSN:</label>
-		<input type="text" [(ngModel)]="ssn" maxlength="11" />
-		<label>Date of Birth:</label>
-		<input type="date" [(ngModel)]="dateOfBirth" />
+	<label>First Name:</label>
+	<input type="text" [(ngModel)]="firstName" />
+	<label>Last Name:</label>
+	<input type="text" [(ngModel)]="lastName" />
+	<label>SSN:</label>
+	<input type="text" [(ngModel)]="ssn" maxlength="11" />
+	<label>Date of Birth:</label>
+	<input type="date" [(ngModel)]="dateOfBirth" />
+	<button (click)="goBack()">Go Back</button>
 	<button (click)="createMember()">Create Member</button>
-	<p *ngIf="validationMessage" class="validate">{{validationMessage}}</p>
 </section>
+<p *ngIf="validationMessage" class="validate">{{validationMessage}}</p>
