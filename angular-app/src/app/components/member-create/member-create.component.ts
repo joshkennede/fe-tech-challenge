@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { IMemberApiServiceProvider } from 'src/app/services/api/member/member-api.config';
 import { IMemberApiService } from 'src/app/services/api/member/member-api.service';
 import { IMemberDto } from 'src/app/models/dto/member-dto.model';
+import { validationMessage } from 'src/app/app.component';
 import { Router } from '@angular/router';
 
 @Component({
@@ -37,7 +38,7 @@ export class MemberCreateComponent implements OnInit {
 		if (this.isFormComplete(member)) {
 			this.memberService.create(member).subscribe(() => this.router.navigate(['/']));
 		} else {
-			this.validationMessage = 'Please fill out all fields';
+			this.validationMessage = validationMessage;
 		}
 	}
 
